@@ -1,0 +1,52 @@
+/** Pseudo Code for Code Quiz
+ *
+ * Part 1 - setting the questions (logic.js)
+ *   - Create an array of objects with all the questions and answers
+ *      - let questions = [{ question: "", answers: ["a","b","c","d"], correctAns: answers[i]},{},{}]
+ *
+ *
+ * Part 2 - getting score (logic.js)
+ * Start button presented to the screen upon loading the website
+ *      - let score = 0;
+ *   - When clicked timer starts and first question appears
+ *    - startBtn.addEventListener("click", function())
+ *      - setTime function to keep track of the time
+ *         - setInterval function(func(what to happen), time(in ms))
+ *         - func(what to happen)
+ *            - clear the display
+ *              - add the hide class to the parent div
+ *            - display the question and answers
+ *              - remove the hide class from the div
+ *              - loop through the questions array in sequence
+ *                - for loop, for each
+ *                  - if answer is correct score++
+                      _ play correct.wav (optional - leave till last)
+ *                    - go to next question
+ *                  - else the timer reduces
+                      - play incorrect.wav (optional - leave till last)
+ *                    - go to next question
+ *                - end game when all questions have answered
+ *                  - call gameEnd()
+ *
+ * gameEnd function
+ *    - Show end game screen
+ *      - remove the hide class from the end-screen div
+ *    - display score
+ *      - textContent to the #final-score span = score
+ *    - Get user initials from #initials input value
+ *    - user can save their initials and score
+ *      - localStorage.setItem("userInitials", JSON.stringify(userInitials))
+ *      - localStorage.setItem("userScore", JSON.stringify(score))
+ *
+ *
+ * Part 2 - high score record (scores.js)
+ * Grab the scores saved from local storage
+ *  - let storedScores = JSON.parse(localStorage.getItem("scores")) || "No scores"
+ * Display the scores
+ *  - exercise 6 of 03-client-side-storage lesson
+ * Btn to go back and restart the game (event listener)
+ *  - initialise game function
+ *    - score = 0
+ *    - game starts
+ * Btn to clear the high score from local storage (event listener)
+ */
