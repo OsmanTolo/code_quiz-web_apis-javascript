@@ -1,6 +1,6 @@
 /** Pseudo Code for Code Quiz
  *
- * Part 1 - setting the questions (logic.js)
+ * Part 1 - setting the questions (questions.js)
  *   - Create an array of objects with all the questions and answers
  *      - let questions = [{ question: "", answers: ["a","b","c","d"], correctAns: answers[i]},{},{}]
  *
