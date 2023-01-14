@@ -49,3 +49,8 @@ let questions = [
       "Both var and let keywords are used to define a variable in JavaScript",
   },
 ];
+
+/** Questions from:
+ * https://www.javatpoint.com/javascript-mcq
+ * https://www.interviewbit.com/javascript-mcq/
+ */
