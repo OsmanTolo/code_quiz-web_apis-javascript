@@ -2,51 +2,61 @@
 
 let questions = [
   {
-    question1: "Javascript is an _______ language?",
-    answers1: [
-      "Object-Oriented",
-      "Object-Based",
-      "Procedural",
-      "None of the above",
-    ],
-    correctAns1: answers[1],
-    explanation1: "Javascript is an Object-Oriented Language.",
+    question1: {
+      question: "Javascript is an _______ language?",
+      answers: [
+        "Object-Oriented",
+        "Object-Based",
+        "Procedural",
+        "None of the above",
+      ],
+      solution() {
+        return this.answers[1];
+      },
+    },
   },
   {
-    question2:
-      "Which of the following methods is used to access HTML elements using Javascript?",
-    answers2: [
-      "getElementById()",
-      "querySelector()",
-      "Both A and B",
-      "Noe of the Above",
-    ],
-    correctAns2: answers[2],
-    explanation2:
-      "Both the above methods are used to access HTML elements using Javascript.",
+    question2: {
+      question:
+        "Which of the following methods is used to access HTML elements using Javascript?",
+      answers: [
+        "getElementById()",
+        "querySelector()",
+        "Both A and B",
+        "Noe of the Above",
+      ],
+      solution() {
+        return this.answers[2];
+      },
+    },
   },
   {
-    question3: "How can a datatype be declared to be a constant type?",
-    answers3: ["const", "var", "let", "constant"],
-    correctAns3: answers[0],
-    explanation3:
-      "The const keyword is used to declare a variable as a constant type in Javascript and tells the compiler that its value cannot be changed later in the program.",
+    question3: {
+      question: "How can a datatype be declared to be a constant type?",
+      answers: ["const", "var", "let", "constant"],
+      solution() {
+        return this.answers[0];
+      },
+    },
   },
   {
-    question4:
-      "Which of the following keywords is used to define a variable in Javascript?",
-    answers4: ["var", "let", "Both A and B", "None of the above"],
-    correctAns4: answers[2],
-    explanation4:
-      "Both var and let keywords are used to define a variable in JavaScript",
+    question4: {
+      question:
+        "Which of the following keywords is used to define a variable in Javascript?",
+      answers: ["const", "var", "let", "constant"],
+      solution() {
+        return this.answers[2];
+      },
+    },
   },
   {
-    question5:
-      "Which of the following keywords is used to define a variable in Javascript?",
-    answers5: ["var", "let", "Both A and B", "None of the above"],
-    correctAns5: answers[2],
-    explanation5:
-      "Both var and let keywords are used to define a variable in JavaScript",
+    question5: {
+      question: "What will be the output of print(typeof(NaN))?",
+      answers: ["Object", "Number", "String", "None of the above"],
+      solution() {
+        return this.answers[1];
+      },
+    },
   },
 ];
 
