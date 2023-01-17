@@ -5,10 +5,19 @@ const startBtnEl = document.querySelector("#start");
 const questionsContainerEl = document.querySelector("#questions");
 const questionTitleEl = document.querySelector("#question-title");
 const questionChoicesEl = document.querySelector("#choices");
+const feedbackEl = document.querySelector("#feedback");
+const timerEl = document.querySelector("#time");
+const endScreenContainerEl = document.querySelector("#end-screen");
+const finalScoreEl = document.querySelector("#final-score");
+const initialsInputEl = document.querySelector("#initials");
+const submitScoreBtnEl = document.querySelector("#submit");
+const highScoresEl = document.querySelector("ol");
 
-let shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions;
+let currentQuestionIndex = 0;
 let score = 0;
-// console.log(questions[0].question);
+let timeLeft = 20;
+let timeInterval;
 
 startBtnEl.addEventListener("click", startQuiz);
 
