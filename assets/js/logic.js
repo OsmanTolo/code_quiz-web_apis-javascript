@@ -91,6 +91,10 @@ function selectAnswer(event) {
   }
 }
 
+// Todo: add the correct and wrong sounds
+
+submitScoreBtnEl.addEventListener("click", submitScore);
+
 function submitScore() {
   // grab the value from the input element
   let initialInputText = initialsInputEl.value.trim();
@@ -104,25 +108,24 @@ function submitScore() {
   showHighScores();
 }
 
-submitScoreBtnEl.addEventListener("click", submitScore);
-
-function showHighScores(e) {
+function showHighScores() {
   // Go to the high scores page
   window.location.href = "/highscores.html";
   // Get the scores from the local storage
   let storedScores = { ...localStorage };
+  console.log(storedScores);
 
   for (const property in storedScores) {
     // console.log(`${property}: ${storedScores[property]}`);
     let liEl = document.createElement("li");
-    liEl.textContent = `${property}: ${storedScores[property]}`;
-    highScoresEl.appendChild(liEl);
+    liEl.textContent = `${property} - ${storedScores[property]}`;
+    highScoresEl.append(liEl);
   }
 }
 
 // Clear score when the btn is pressed
-clearScoreBtnEl.addEventListener("click", function (e) {
-  if (e.target.matches("button")) {
-    localStorage.clear();
-  }
-});
+// clearScoreBtnEl.addEventListener("click", function (e) {
+//   if (e.target.matches("button")) {
+//     localStorage.clear();
+//   }
+// });
