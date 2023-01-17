@@ -11,8 +11,6 @@ const endScreenContainerEl = document.querySelector("#end-screen");
 const finalScoreEl = document.querySelector("#final-score");
 const initialsInputEl = document.querySelector("#initials");
 const submitScoreBtnEl = document.querySelector("#submit");
-const highScoresEl = document.querySelector("highscores");
-const clearScoreBtnEl = document.querySelector("#clear");
 
 // Shuffle the questions within the questions array 50% of the time
 let shuffledQuestions = questions.sort(() => Math.random() - 0.5);
@@ -20,6 +18,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 30;
 let timeInterval;
+let mySfx;
 
 startBtnEl.addEventListener("click", startQuiz);
 
@@ -67,6 +66,7 @@ function selectAnswer(event) {
     timerEl.textContent = timeLeft;
     feedbackEl.classList.toggle("hide");
     feedbackEl.innerHTML = "Wrong!";
+    mySfx = new sound("../sfx/incorrect.wav");
     if (timeLeft < 0) {
       timeLeft = 0;
     }
@@ -111,21 +111,22 @@ function submitScore() {
 function showHighScores() {
   // Go to the high scores page
   window.location.href = "/highscores.html";
-  // Get the scores from the local storage
-  let storedScores = { ...localStorage };
-  console.log(storedScores);
-
-  for (const property in storedScores) {
-    // console.log(`${property}: ${storedScores[property]}`);
-    let liEl = document.createElement("li");
-    liEl.textContent = `${property} - ${storedScores[property]}`;
-    highScoresEl.append(liEl);
-  }
 }
 
-// Clear score when the btn is pressed
-// clearScoreBtnEl.addEventListener("click", function (e) {
-//   if (e.target.matches("button")) {
-//     localStorage.clear();
-//   }
-// });
+// Code snippet from https://www.w3schools.com/graphics/game_sound.asp
+// function sound(src) {
+//   this.sound = document.createElement("audio");
+//   this.sound.src = src;
+//   this.sound.setAttribute("preload", "auto");
+//   this.sound.setAttribute("controls", "none");
+//   this.sound.style.display = "none";
+//   document.body.appendChild(this.sound);
+//   this.play = function () {
+//     this.sound.play();
+//   };
+//   this.stop = function () {
+//     this.sound.pause();
+//   };
+// }
+
+function sound(src) {}
