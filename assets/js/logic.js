@@ -16,7 +16,7 @@ const submitScoreBtnEl = document.querySelector("#submit");
 let shuffledQuestions = questions.sort(() => Math.random() - 0.5);
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 30;
+let timeLeft = 20;
 let timeInterval;
 let mySfx;
 
@@ -35,6 +35,11 @@ function startQuiz() {
     // Clear the time interval
     if (timeLeft === 0) {
       clearInterval(timeInterval);
+      questionsContainerEl.classList.add("hide");
+      // Present the end game screen, and store score
+      endScreenContainerEl.classList.remove("hide");
+      finalScoreEl.textContent = score;
+      submitScore();
     }
   }, 1000);
   showQuestion();
@@ -66,7 +71,7 @@ function selectAnswer(event) {
     timerEl.textContent = timeLeft;
     feedbackEl.classList.toggle("hide");
     feedbackEl.innerHTML = "Wrong!";
-    mySfx = new sound("../sfx/incorrect.wav");
+    // mySfx = new sound("../sfx/incorrect.wav");
     if (timeLeft < 0) {
       timeLeft = 0;
     }
@@ -114,19 +119,7 @@ function showHighScores() {
 }
 
 // Code snippet from https://www.w3schools.com/graphics/game_sound.asp
-// function sound(src) {
-//   this.sound = document.createElement("audio");
-//   this.sound.src = src;
-//   this.sound.setAttribute("preload", "auto");
-//   this.sound.setAttribute("controls", "none");
-//   this.sound.style.display = "none";
-//   document.body.appendChild(this.sound);
-//   this.play = function () {
-//     this.sound.play();
-//   };
-//   this.stop = function () {
-//     this.sound.pause();
-//   };
-// }
-
-function sound(src) {}
+function sound(src) {
+  mySfx = new sound(src);
+  mySfx.play();
+}

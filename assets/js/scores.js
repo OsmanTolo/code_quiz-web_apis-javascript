@@ -16,8 +16,7 @@ function scores() {
 scores();
 
 // Clear score when the btn is pressed
-clearScoreBtnEl.addEventListener("click", function (e) {
-  if (e.target.matches("button")) {
-    localStorage.clear();
-  }
+clearScoreBtnEl.addEventListener("click", function () {
+  localStorage.clear();
+  highScoresEl.innerHTML = "";
 });
