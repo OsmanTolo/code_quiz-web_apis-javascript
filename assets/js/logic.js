@@ -100,3 +100,19 @@ function submitScore() {
   localStorage.setItem(`${initialInputText}`, JSON.stringify(score));
   showHighScores();
 }
+
+submitScoreBtnEl.addEventListener("click", submitScore);
+
+function showHighScores(e) {
+  // Go to the high scores page
+  window.location.href = "/highscores.html";
+  // Get the scores from the local storage
+  let storedScores = { ...localStorage };
+
+  for (const property in storedScores) {
+    console.log(`${property}: ${storedScores[property]}`);
+    let liEl = document.createElement("li");
+    liEl.textContent = `${property}: ${storedScores[property]}`;
+    highScoresEl.append(liEl);
+  }
+}
