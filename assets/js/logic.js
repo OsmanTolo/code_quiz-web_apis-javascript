@@ -57,33 +57,33 @@ function showQuestion() {
   });
 }
 
-function selectChoice() {}
-
-/*
-function displayQuestions() {
-  // Display the question screen
-  questionsContainerEl.classList.remove("hide");
-  questionTitleEl.textContent = questions[0].question0.question;
-  let olEl = document.createElement("ol");
-  questionsContainerEl.appendChild(olEl);
-  let choicesArr = questions[0].question0.choices;
-  for (let i = 0; i < choicesArr.length; i++) {
-    let liEl = document.createElement("li");
-    olEl.appendChild(liEl);
-    liEl.innerHTML = choicesArr[i];
+function selectAnswer(event) {
+  // Handle what happens when the wrong and correct answers are selected
+  if (event.target.dataset.correct === "false") {
+    timeLeft -= 2;
+    timerEl.textContent = timeLeft;
+    feedbackEl.classList.toggle("hide");
+    feedbackEl.innerHTML = "Wrong!";
+    if (timeLeft < 0) {
+      timeLeft = 0;
+    }
+  } else {
+    score += 5;
+    feedbackEl.classList.toggle("hide");
+    feedbackEl.innerHTML = "Correct!";
   }
-  // liEl.textContent = questions[0].question0.choices;
-  // olEl.textContent = element[key].question;
 
-  // for (let i = 0; i < questions.length; i++) {
-  //   const element = questions[i];
-  //   for (const key in element) {
-  //     console.log(element[key].question);
-  //     // console.log(element[key].choices);
-  //     // console.log(element[key].solution());
-  //     // olEl.textContent = element[key].question;
-  //     // questionsContainerEl.appendChild(olEl);
-  //   }
-  // }
+  // Add 1 to the currentQuestionIndex variable - so next question
+  currentQuestionIndex++;
+  // If we don't have any more questions - End the game
+  if (shuffledQuestions.length === currentQuestionIndex || timeLeft === 0) {
+    clearInterval(timeInterval);
+    questionsContainerEl.classList.add("hide");
+    // Present the end game screen, and store score
+    endScreenContainerEl.classList.remove("hide");
+    finalScoreEl.textContent = score;
+    submitScore();
+  } else {
+    showQuestion();
+  }
 }
-*/
