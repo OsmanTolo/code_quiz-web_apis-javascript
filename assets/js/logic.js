@@ -4,26 +4,29 @@ const startScreenContainerEl = document.querySelector("#start-screen");
 const startBtnEl = document.querySelector("#start");
 const questionsContainerEl = document.querySelector("#questions");
 const questionTitleEl = document.querySelector("#question-title");
-const questionChoicesEl = document.querySelector("#choices");
+const answerChoicesContainer = document.querySelector("#choices");
 const feedbackEl = document.querySelector("#feedback");
 const timerEl = document.querySelector("#time");
 const endScreenContainerEl = document.querySelector("#end-screen");
 const finalScoreEl = document.querySelector("#final-score");
 const initialsInputEl = document.querySelector("#initials");
 const submitScoreBtnEl = document.querySelector("#submit");
-const highScoresEl = document.querySelector("ol");
+const highScoresEl = document.querySelector("highscores");
+const clearScoreBtnEl = document.querySelector("#clear");
 
+// Shuffle the questions within the questions array 50% of the time
 let shuffledQuestions = questions.sort(() => Math.random() - 0.5);
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 20;
+let timeLeft = 30;
 let timeInterval;
 
 startBtnEl.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  // Hide the start screen
+  // Hide the start screen and show the question screen
   startScreenContainerEl.classList.add("hide");
+  questionsContainerEl.classList.remove("hide");
 
   // Start countdown
   timeInterval = setInterval(function () {
@@ -110,9 +113,16 @@ function showHighScores(e) {
   let storedScores = { ...localStorage };
 
   for (const property in storedScores) {
-    console.log(`${property}: ${storedScores[property]}`);
+    // console.log(`${property}: ${storedScores[property]}`);
     let liEl = document.createElement("li");
     liEl.textContent = `${property}: ${storedScores[property]}`;
-    highScoresEl.append(liEl);
+    highScoresEl.appendChild(liEl);
   }
 }
+
+// Clear score when the btn is pressed
+clearScoreBtnEl.addEventListener("click", function (e) {
+  if (e.target.matches("button")) {
+    localStorage.clear();
+  }
+});
