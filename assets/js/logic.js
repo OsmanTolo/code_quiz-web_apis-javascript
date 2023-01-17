@@ -38,40 +38,22 @@ function startQuiz() {
   showQuestion();
 }
 
-function SetNextQuestion() {
-  // Get the question - show the question at the current shuffledQuestion index
-  showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
+function showQuestion() {
+  feedbackEl.classList.remove("hide");
+  let currentQuestion = shuffledQuestions[currentQuestionIndex];
+  questionTitleEl.textContent = currentQuestion.question;
 
-function showQuestion(question) {
-  questionTitleEl.textContent = question.question;
+  // Clear the choices container
+  answerChoicesContainer.innerHTML = "";
+  // Loop through the question choices to populate them in the window
+  currentQuestion.answers.forEach((answer, index) => {
+    let answersBtn = document.createElement("button");
+    answersBtn.dataset.correct = answer.correct;
+    answersBtn.addEventListener("click", selectAnswer);
 
-  let olEl = document.createElement("ol");
-  questionsContainerEl.appendChild(olEl);
-
-  // Loop through the choices and add them to the screen
-  question.choices.forEach((choice, choiceIndex) => {
-    let liEl = document.createElement("li");
-    let choiceBtnEl = document.createElement("button");
-    olEl.appendChild(liEl);
-    liEl.appendChild(choiceBtnEl);
-    choiceBtnEl.textContent = choice;
-
-    choiceBtnEl.addEventListener("click", function () {
-      if (choiceIndex === question.solution) {
-        console.log(`Correct Answer`);
-        score += 5;
-        SetNextQuestion();
-      } else {
-        console.log(`Wrong Answer`);
-        if (score === 0) {
-          score;
-        } else {
-          score -= 5;
-        }
-        SetNextQuestion();
-      }
-    });
+    // Set the content of the button to be content of the answers element
+    answersBtn.textContent = index + 1 + ". " + answer.text;
+    answerChoicesContainer.appendChild(answersBtn);
   });
 }
 
