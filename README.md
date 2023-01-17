@@ -30,7 +30,7 @@ Distributed under the MIT License.
 
 Osman Dumbuya - [@OsmanTolo\_](https://twitter.com/OsmanTolo_)
 
-Project Link: [https://github.com/OsmanTolo/Password-Generator](https://github.com/OsmanTolo/code_quiz-web_apis-javascript)
+Project Link: [https://github.com/OsmanTolo/code_quiz-web_apis-javascript](https://github.com/OsmanTolo/code_quiz-web_apis-javascript)
 
 ## Acknowledgments
 
