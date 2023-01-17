@@ -3,55 +3,53 @@
 let questions = [
   {
     question: "Javascript is an _______ language?",
-    choices: [
-      "Object-Oriented",
-      "Object-Based",
-      "Procedural",
-      "None of the above",
+    answers: [
+      { text: "Object-Oriented", correct: true },
+      { text: "Object-Based", correct: false },
+      { text: "Procedural", correct: false },
+      { text: "None of the above", correct: false },
     ],
-    solution: 0,
-    // solution() {
-    //   return this.choices[1];
-    // },
-  },
-  {
-    question:
-      "Which of the following methods is used to access HTML elements using Javascript?",
-    choices: [
-      "getElementById()",
-      "querySelector()",
-      "Both A and B",
-      "Noe of the Above",
-    ],
-    solution: 2,
-    // solution() {
-    //   return this.choices[2];
-    // },
   },
   {
     question: "How can a datatype be declared to be a constant type?",
-    choices: ["const", "var", "let", "constant"],
-    solution: 0,
-    // solution() {
-    //   return this.choices[0];
-    // },
+    answers: [
+      { text: "constant", correct: false },
+      { text: "var", correct: false },
+      { text: "let", correct: false },
+      { text: "const", correct: true },
+    ],
+  },
+  {
+    question:
+      "Which of the following methods is used to access HTML elements using Javascript??",
+    answers: [
+      { text: "getElementById()", correct: false },
+      { text: "querySelector()", correct: false },
+      { text: "Both 1 and 2", correct: true },
+      { text: "None of the above", correct: false },
+    ],
   },
   {
     question:
       "Which of the following keywords is used to define a variable in Javascript?",
-    choices: ["const", "var", "let", "All of the above"],
-    solution: 3,
-    // solution() {
-    //   return this.choices[2];
-    // },
+    answers: [
+      { text: "var", correct: false },
+      { text: "let", correct: false },
+      { text: "const", correct: false },
+      { text: "All of the above", correct: true },
+    ],
   },
   {
-    question: "What will be the output of print(typeof(NaN))?",
-    choices: ["Object", "Number", "String", "None of the above"],
-    solution: 1,
-    // solution() {
-    //   return this.choices[1];
-    // },
+    question: `How do you write "Hello World" in an alert box?`,
+    answers: [
+      {
+        text: `alert("Hello World")`,
+        correct: true,
+      },
+      { text: `alertBox("Hello World")`, correct: false },
+      { text: `msgBox("Hello World")`, correct: false },
+      { text: `msg("Hello World")`, correct: false },
+    ],
   },
 ];
 
