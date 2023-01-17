@@ -87,3 +87,16 @@ function selectAnswer(event) {
     showQuestion();
   }
 }
+
+function submitScore() {
+  // grab the value from the input element
+  let initialInputText = initialsInputEl.value.trim();
+  // Return from function early if input is blank
+  if (initialInputText === "") {
+    return;
+  }
+
+  // Store the score against the initials in local storage as key value pair
+  localStorage.setItem(`${initialInputText}`, JSON.stringify(score));
+  showHighScores();
+}
