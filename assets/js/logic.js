@@ -13,7 +13,7 @@ const initialsInputEl = document.querySelector("#initials");
 const submitScoreBtnEl = document.querySelector("#submit");
 const highScoresEl = document.querySelector("ol");
 
-let shuffledQuestions;
+let shuffledQuestions = questions.sort(() => Math.random() - 0.5);
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 20;
@@ -24,11 +24,18 @@ startBtnEl.addEventListener("click", startQuiz);
 function startQuiz() {
   // Hide the start screen
   startScreenContainerEl.classList.add("hide");
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-  currentQuestionIndex = 0;
-  // Display the questions container
-  questionsContainerEl.classList.remove("hide");
-  SetNextQuestion();
+
+  // Start countdown
+  timeInterval = setInterval(function () {
+    timeLeft--;
+    // Display the time
+    timerEl.textContent = timeLeft;
+    // Clear the time interval
+    if (timeLeft === 0) {
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+  showQuestion();
 }
 
 function SetNextQuestion() {
